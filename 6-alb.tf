@@ -41,7 +41,7 @@ resource "aws_lb" "byoi_alb" {
   name                       = "byoi-alb"
   internal                   = false
   load_balancer_type         = "application"
-  subnets                    = [aws_subnet.byoi-public-subnet-1.id,aws_subnet.byoi-public-subnet-2.id]
+  subnets                    = [aws_subnet.byoi-public-subnet-1.id, aws_subnet.byoi-public-subnet-2.id]
   security_groups            = [aws_security_group.byoi-ALB-SG.id]
   enable_deletion_protection = false
   /* "enable_deletion_protection" If true, deletion of the load balancer will be disabled via

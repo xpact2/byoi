@@ -1,6 +1,6 @@
 resource "aws_vpc" "byoi-vpc" {
-  cidr_block = "10.0.0.0/16"
-  enable_dns_support = true
+  cidr_block           = "10.0.0.0/16"
+  enable_dns_support   = true
   enable_dns_hostnames = true
 
   tags = {
@@ -30,9 +30,9 @@ resource "aws_subnet" "byoi-public-subnet-2" {
 }
 
 resource "aws_subnet" "byoi-private-subnet-1" {
-  vpc_id                  = aws_vpc.byoi-vpc.id
-  cidr_block              = "10.0.3.0/24"
-  availability_zone       = "us-east-1a"
+  vpc_id            = aws_vpc.byoi-vpc.id
+  cidr_block        = "10.0.3.0/24"
+  availability_zone = "us-east-1a"
 
   tags = {
     Name = "Private-Subnet-1"
@@ -40,9 +40,9 @@ resource "aws_subnet" "byoi-private-subnet-1" {
 }
 
 resource "aws_subnet" "byoi-private-subnet-2" {
-  vpc_id                  = aws_vpc.byoi-vpc.id
-  cidr_block              = "10.0.4.0/24"
-  availability_zone       = "us-east-1b"
+  vpc_id            = aws_vpc.byoi-vpc.id
+  cidr_block        = "10.0.4.0/24"
+  availability_zone = "us-east-1b"
 
   tags = {
     Name = "PrivateSubnet2"
@@ -140,7 +140,7 @@ resource "aws_route_table" "byoi-private-rt" {
 }
 
 # Associate both private subnets with private route table
-resource "aws_route_table_association" "private_subnet_association-1" {   
+resource "aws_route_table_association" "private_subnet_association-1" {
   route_table_id = aws_route_table.byoi-private-rt.id
   subnet_id      = aws_subnet.byoi-private-subnet-1.id
 }

@@ -100,9 +100,9 @@ EOT
 
 # two app-servers in private-subnets
 resource "aws_instance" "byoi-app-server-1" {
-  ami                         = data.aws_ami.amazon_linux_2.id
-  instance_type               = "t2.micro"
-#   key_name                    = "demo"
+  ami           = data.aws_ami.amazon_linux_2.id
+  instance_type = "t2.micro"
+  #   key_name                    = "demo"
   subnet_id                   = aws_subnet.byoi-private-subnet-1.id
   associate_public_ip_address = "false"
   vpc_security_group_ids      = [aws_security_group.byoi-App-SG.id]
@@ -118,9 +118,9 @@ resource "aws_instance" "byoi-app-server-1" {
 
 
 resource "aws_instance" "byoi-app-server-2" {
-  ami                         = data.aws_ami.amazon_linux_2.id
-  instance_type               = "t2.micro"
-#   key_name                    = "demo"
+  ami           = data.aws_ami.amazon_linux_2.id
+  instance_type = "t2.micro"
+  #   key_name                    = "demo"
   subnet_id                   = aws_subnet.byoi-private-subnet-2.id
   associate_public_ip_address = "false"
   vpc_security_group_ids      = [aws_security_group.byoi-App-SG.id]
